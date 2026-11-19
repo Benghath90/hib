@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="briefing">
+  <title>دليل المهندس الجديد لجهة المالك — مشروع الفجائج السكني | HIB-22</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces: warm stone-white paper (Briefing) */
+      --background: #faf9f5;
+      --surface-container-low: #ffffff;
+      --surface-container: #f1efe8;
+      --surface-container-high: #e6e2d6;
+
+      /* Ink */
+      --on-surface: #17181a;
+      --on-surface-variant: #56585c;
+
+      /* Rules */
+      --outline: #17181a;
+      --outline-variant: #dedad0;
+
+      /* Accents */
+      --primary: #17181a;
+      --on-primary: #faf9f5;
+      --primary-container: #f2b705;
+      --on-primary-container: #17181a;
+      --secondary: #1f4e5f;
+      --tertiary: #785008;
+      --error: #b42318;
+      --on-error: #ffffff;
+
+      /* Additional semantic & surface tones */
+      --positive: #2b6e52;
+      --positive-bg: #eaf4ef;
+      --warning: #9a6700;
+      --warning-bg: #fdf4dc;
+      --error-bg: #fdeceb;
+      --secondary-bg: #e8f1f4;
+      --tag-warm-bg: #f5e6c4;
+      --button-secondary-border: #c8c4b8;
+      --focus: #1f4e5f;
+
+      /* Data series */
+      --data-1: #1f4e5f;
+      --data-2: #d99000;
+      --data-3: #2b6e52;
+      --data-4: #b84a39;
+      --data-context: #c4bfb2;
+
+      /* Fonts: Arabic first, paired with Briefing Latin & Mono */
+      --font-headline: 'Noto Naskh Arabic', 'Source Serif 4', serif;
+      --font-body: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif;
+      --font-label: 'Noto Sans Arabic', 'Geist Mono', monospace;
+      --font-mono-code: 'Geist Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.25rem;
+      --rounded-lg: 0.375rem;
+      --rounded-full: 0.25rem;
+
+      /* Style effects */
+      --section-rule: 1.5px solid var(--outline);
+      --card-border: 1px solid var(--outline-variant);
+      --badge-radius: 2px;
+
+      /* Narrative Type Scale */
+      --display-size: clamp(2.1rem, 1.35rem + 2.4vw, 3.25rem);
+      --headline-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.05rem);
+      --subhead-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.35rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      --shadow-dock: 0 6px 20px rgba(23, 24, 26, 0.22);
+      --border-focus: 3px solid var(--focus);
+      --border-alert: 4px solid var(--error);
+      --border-positive: 3px solid var(--positive);
+      --border-top-cover: 4px solid var(--primary);
+      --border-top-commandment: 3px solid var(--secondary);
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      letter-spacing: 0;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-xl);
+      padding: var(--space-lg);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-bottom: var(--space-3xl);
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* RTL & BiDi helpers */
+    .ltr-code {
+      font-family: var(--font-mono-code);
+      direction: ltr;
+      unicode-bidi: isolate;
+      letter-spacing: 0;
+    }
+    .tabular {
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+
+    /* Briefing Dossier Header & Deck Bars */
+    .dossier-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--section-rule);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .dossier-bar-start {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .dossier-pill {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: var(--label-size);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--badge-radius);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .dossier-meta {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 500;
+    }
+
+    /* Slide Card Architecture */
+    .slide-section {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      position: relative;
+      transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out);
+    }
+    .slide-section.reveal-ready {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    .slide-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-cover {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-top: var(--border-top-cover);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+    }
+
+    .slide-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--headline-size);
+      line-height: 1.25;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-xs) 0;
+    }
+    .cover-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--display-size);
+      line-height: 1.2;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm) 0;
+    }
+    .standfirst {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: var(--subhead-size);
+      color: var(--secondary);
+      margin: 0 0 var(--space-lg) 0;
+      line-height: 1.5;
+    }
+
+    /* Top Program Ribbon & Slide Navigation */
+    .top-control-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      border-radius: var(--rounded);
+    }
+    .progress-cluster {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .progress-track {
+      width: 140px;
+      height: 8px;
+      background: var(--surface-container-high);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--secondary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-in-out),
+                  color var(--dur-micro) var(--ease-in-out),
+                  box-shadow var(--dur-micro) var(--ease-in-out);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-primary:hover {
+      background: var(--secondary);
+    }
+    .btn-secondary {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      border-color: var(--button-secondary-border);
+    }
+    .btn-secondary:hover {
+      background: var(--surface-container-high);
+    }
+    .btn-sm {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: var(--label-size);
+    }
+    .btn.is-checked {
+      background: var(--positive-bg);
+      color: var(--positive);
+      border-color: var(--positive);
+    }
+
+    /* Index badges & Tags */
+    .index-num {
+      font-family: var(--font-mono-code);
+      font-weight: 600;
+      font-size: var(--label-size);
+      color: var(--secondary);
+      background: var(--surface-container);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--badge-radius);
+      display: inline-block;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+      font-size: var(--label-size);
+      font-weight: 600;
+      background: var(--tag-warm-bg);
+      color: var(--tertiary);
+    }
+    .tag-positive {
+      background: var(--positive-bg);
+      color: var(--positive);
+    }
+    .tag-error {
+      background: var(--error-bg);
+      color: var(--error);
+    }
+    .tag-secondary {
+      background: var(--secondary-bg);
+      color: var(--secondary);
+    }
+
+    /* Grids */
+    .split-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.15fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .split-grid-equal {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+    .card-grid-5 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    /* Figure cards & Aside boxes */
+    .figure-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .figure-card .kpi-value {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 1.25rem + 0.9vw, 2.1rem);
+      color: var(--on-surface);
+      line-height: 1.2;
+      margin: var(--space-xs) 0;
+    }
+    .figure-card .kpi-label {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+    .aside-box {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+    }
+    .alert-box {
+      background: var(--error-bg);
+      border-right: var(--border-alert);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+    }
+    .alert-box-title {
+      font-weight: 700;
+      color: var(--error);
+      margin-bottom: var(--space-xs);
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    /* Concise Bullet List */
+    .brief-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .brief-list li {
+      position: relative;
+      padding-right: var(--space-lg);
+      max-width: 65ch;
+    }
+    .brief-list li::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0.65em;
+      width: 8px;
+      height: 8px;
+      background: var(--secondary);
+      border-radius: var(--badge-radius);
+    }
+
+    /* Agenda Interactive Cards */
+    .agenda-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      text-align: right;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-in-out),
+                  box-shadow var(--dur-micro) var(--ease-in-out);
+    }
+    .agenda-card:hover {
+      background: var(--surface-container);
+      box-shadow: 0 0 0 1px var(--secondary);
+    }
+    .agenda-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .agenda-card-desc {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Interactive Org Hierarchy (Slide 3) */
+    .org-diagram-wrap {
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+    }
+    .org-node-btn {
+      cursor: pointer;
+      transition: opacity var(--dur-micro) var(--ease-in-out);
+    }
+    .org-node-btn:hover .org-box {
+      stroke: var(--secondary);
+      stroke-width: 2.5;
+    }
+    .org-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .role-tab-btn {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-in-out),
+                  color var(--dur-micro) var(--ease-in-out);
+    }
+    .role-tab-btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Comparison Dual Column (Slide 4) */
+    .comp-col {
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .comp-col-header {
+      border-bottom: var(--section-rule);
+      padding-bottom: var(--space-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .comp-row {
+      border-bottom: 1px solid var(--outline-variant);
+      padding-bottom: var(--space-sm);
+    }
+    .comp-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .comp-row-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Primavera P6 Gantt Simulator (Slide 5) */
+    .gantt-panel {
+      background: var(--background);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      overflow-x: auto;
+    }
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 200px minmax(260px, 1fr) 78px;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) 0;
+      border-bottom: 1px solid var(--outline-variant);
+      font-size: 0.875rem;
+    }
+    .gantt-row:last-child { border-bottom: none; }
+    .gantt-bar-track {
+      position: relative;
+      height: 24px;
+      background: var(--surface-container);
+      border-radius: var(--badge-radius);
+    }
+    .gantt-bar {
+      position: absolute;
+      top: 4px;
+      height: 16px;
+      border-radius: var(--badge-radius);
+      transition: width var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+    }
+    .gantt-bar.critical { background: var(--error); }
+    .gantt-bar.non-critical { background: var(--data-1); }
+    .gantt-bar.violation { background: var(--data-2); }
+
+    /* Approval Workflow Stepper (Slide 6) */
+    .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .step-btn {
+      min-height: 44px;
+      padding: var(--space-sm);
+      background: var(--surface-container);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      text-align: right;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      color: var(--on-surface);
+      transition: background-color var(--dur-micro) var(--ease-in-out);
+    }
+    .step-btn.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .step-btn.is-active .step-num-pill {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .step-num-pill {
+      font-family: var(--font-mono-code);
+      font-size: var(--label-size);
+      font-weight: 700;
+      background: var(--surface-container-low);
+      color: var(--secondary);
+      padding: 2px 6px;
+      border-radius: var(--badge-radius);
+      width: fit-content;
+    }
+
+    /* Submittals Matrix Table (Slide 7) */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: end;
+      margin-bottom: var(--space-md);
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      min-width: 200px;
+    }
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .field-input, .field-select {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container-low);
+      border: 1px solid var(--button-secondary-border);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      background: var(--surface-container-low);
+    }
+    table.dossier-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.92rem;
+    }
+    .dossier-table thead th {
+      background: var(--surface-container);
+      border-bottom: var(--section-rule);
+      padding: var(--space-sm) var(--space-md);
+      font-weight: 700;
+      font-size: var(--label-size);
+      color: var(--on-surface);
+      white-space: nowrap;
+    }
+    .dossier-table tbody td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: top;
+    }
+    .dossier-table tbody tr {
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-in-out);
+    }
+    .dossier-table tbody tr:hover {
+      background: var(--surface-container);
+    }
+    .dossier-table tbody tr.is-selected {
+      background: var(--warning-bg);
+    }
+
+    /* Case Study Decision Simulator (Slide 8) */
+    .option-card {
+      width: 100%;
+      min-height: 44px;
+      text-align: right;
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      color: var(--on-surface);
+      transition: background-color var(--dur-micro) var(--ease-in-out);
+    }
+    .option-card:hover {
+      background: var(--surface-container);
+    }
+    .option-card.chosen-correct {
+      background: var(--positive-bg);
+      border-color: var(--positive);
+    }
+    .option-card.chosen-wrong {
+      background: var(--error-bg);
+      border-color: var(--error);
+    }
+
+    /* Golden Commandments (Slide 9) */
+    .commandments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .commandment-card {
+      background: var(--background);
+      border: var(--card-border);
+      border-top: var(--border-top-commandment);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    /* Bottom Floating Slide Navigator */
+    .slide-dock {
+      position: fixed;
+      bottom: var(--space-md);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      background: var(--primary);
+      color: var(--on-primary);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xs) var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      box-shadow: var(--shadow-dock);
+      max-width: calc(100vw - 2rem);
+    }
+    .dock-btn {
+      min-height: 40px;
+      min-width: 40px;
+      padding: var(--space-xs) var(--space-sm);
+      background: transparent;
+      color: var(--on-primary);
+      border: 1px solid var(--on-surface-variant);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .dock-btn:hover {
+      background: var(--secondary);
+    }
+    .dock-status {
+      font-size: var(--label-size);
+      padding: 0 var(--space-sm);
+      white-space: nowrap;
+    }
+
+    /* Mobile breakpoint */
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-lg);
+        padding-bottom: var(--space-3xl);
+      }
+      .slide-section, .slide-cover {
+        padding: var(--space-md);
+      }
+      .split-grid, .split-grid-equal, .workflow-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .gantt-row {
+        grid-template-columns: 140px minmax(180px, 1fr) 64px;
+      }
+      .slide-dock {
+        bottom: var(--space-sm);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+
+    <!-- Top Program Ribbon (Static Header) -->
+    <header class="top-control-strip" aria-label="شريط متابعة المحاضرة التدريبية">
+      <div class="progress-cluster">
+        <span class="dossier-pill"><span class="ltr-code">HIB-22</span> التدريب الهندسي</span>
+        <span class="dossier-meta">المحاضرة الأولى — تأهيل مهندسي المالك الجدد</span>
+      </div>
+      <div class="progress-cluster">
+        <span class="dossier-meta" id="progress-label">إنجاز المراجعة: 0 من 9 شرائح</span>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =========================================================
+         SLIDE 01: COVER
+    ========================================================== -->
+    <section id="slide-1" class="slide-cover" data-slide="1" aria-labelledby="slide-1-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 01 / الغلاف</span>
+          <span class="dossier-meta">مجلس الإسكان والبنية التحتية (<span class="ltr-code">HIB</span>) — إدارة البرامج (<span class="ltr-code">PMD</span>)</span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="1" onclick="toggleSlideReviewed(1)">تحديد كمقروءة</button>
+      </div>
+
+      <div class="split-grid">
+        <div>
+          <h1 id="slide-1-title" class="cover-title">دليل المهندس الجديد لجهة المالك: المفاهيم والأدوار وحوكمة الموقع</h1>
+          <p class="standfirst">الإطار العقدي والفني المعتمد لمهندسي مجلس الإسكان والبنية التحتية في مشروع الفجائج السكني (شعبية وادي الحياة)</p>
+
+          <ul class="brief-list">
+            <li><strong>البرنامج التدريبي:</strong> المحاضرة الأولى ضمن منظومة التطوير الهندسي (<bdi dir="ltr">HIB-22</bdi>) لتأهيل الكوادر الإشرافية لجهة المالك.</li>
+            <li><strong>المرجعية التعاقدية:</strong> مواصفات القسم <span class="ltr-code">TD020</span> و<span class="ltr-code">TD022</span> و<span class="ltr-code">TD030</span> و<span class="ltr-code">TD130</span> و<span class="ltr-code">TD150</span> ومعايير تصميم المشاريع السكنية.</li>
+            <li><strong>نطاق العمل الميداني:</strong> حوكمة التنفيذ، ضبط الجودة، إدارة الاعتمادات، ومراقبة المسار الحرج لحماية أصول المالك.</li>
+          </ul>
+        </div>
+
+        <!-- Visual Schematic: Al Fajaij Project Brief + Architectural Elevation -->
+        <div class="figure-card">
+          <div class="dossier-bar">
+            <span class="dossier-meta">بطاقة مشروع الفجائج السكني — المرجع <span class="ltr-code">TD020 §2</span></span>
+            <span class="tag tag-secondary">مخطط <span class="ltr-code">UPA</span> معتمد</span>
+          </div>
+
+          <div class="kpi-grid" style="margin-bottom: var(--space-md);">
+            <div class="aside-box">
+              <div class="kpi-label">إجمالي الوحدات السكنية</div>
+              <div class="kpi-value tabular">97 وحدة</div>
+              <div class="dossier-meta">منفصلة طابق واحد (<span class="ltr-code">SD</span>)</div>
+            </div>
+            <div class="aside-box">
+              <div class="kpi-label">المساحة الإجمالية للموقع</div>
+              <div class="kpi-value tabular">14.15 هكتار</div>
+              <div class="dossier-meta">وادي الحياة — الفجائج</div>
+            </div>
+            <div class="aside-box">
+              <div class="kpi-label">المساحة الطابقية للوحدة</div>
+              <div class="kpi-value tabular">160.4 م²</div>
+              <div class="dossier-meta">3 غرف نوم وفق <span class="ltr-code">UPA</span></div>
+            </div>
+          </div>
+
+          <!-- Architectural Schematic SVG -->
+          <svg viewBox="0 0 520 155" width="100%" aria-hidden="true" style="display:block; background: var(--background); border: 1px solid var(--outline-variant); border-radius: var(--rounded);">
+            <rect x="18" y="18" width="484" height="119" fill="none" stroke="var(--outline-variant)" stroke-dasharray="4 4"/>
+            <!-- Detached housing silhouette -->
+            <rect x="44" y="54" width="175" height="62" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="2"/>
+            <rect x="44" y="42" width="175" height="12" fill="var(--secondary)"/>
+            <rect x="64" y="72" width="32" height="24" fill="var(--secondary-bg)" stroke="var(--secondary)" stroke-width="1.5"/>
+            <rect x="116" y="72" width="26" height="44" fill="var(--surface-container)" stroke="var(--primary)" stroke-width="1.5"/>
+            <rect x="162" y="72" width="36" height="24" fill="var(--secondary-bg)" stroke="var(--secondary)" stroke-width="1.5"/>
+            <!-- Boundary wall & 30cm elevation note -->
+            <line x1="24" y1="116" x2="240" y2="116" stroke="var(--primary)" stroke-width="2"/>
+            <rect x="24" y="88" width="10" height="28" fill="var(--surface-container-high)" stroke="var(--primary)" stroke-width="1.5"/>
+            <rect x="228" y="88" width="10" height="28" fill="var(--surface-container-high)" stroke="var(--primary)" stroke-width="1.5"/>
+            <!-- Governance pillars diagram -->
+            <rect x="266" y="28" width="218" height="24" rx="2" fill="var(--primary)"/>
+            <text x="375" y="44" text-anchor="middle" fill="var(--on-primary)" font-size="11" font-weight="700">HIB — المالك والمرجعية العليا</text>
+            <rect x="266" y="62" width="218" height="24" rx="2" fill="var(--secondary)"/>
+            <text x="375" y="78" text-anchor="middle" fill="var(--on-primary)" font-size="11" font-weight="600">AECOM &amp; CM/CS — الإدارة والإشراف</text>
+            <rect x="266" y="96" width="218" height="24" rx="2" fill="var(--primary-container)"/>
+            <text x="375" y="112" text-anchor="middle" fill="var(--on-primary-container)" font-size="11" font-weight="700">QCPM &amp; المقاول — ضبط الجودة والتنفيذ</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 02: AGENDA (5 AXES)
+    ========================================================== -->
+    <section id="slide-2" class="slide-section" data-slide="2" aria-labelledby="slide-2-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 02 / الأجندة</span>
+          <span class="dossier-meta">مخطط تفاعلي من 5 محاور تدريبية</span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="2" onclick="toggleSlideReviewed(2)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-2-title" class="slide-title">خريطة المحاضرة: خمسة محاور لتأسيس حوكمة الموقع</h2>
+      <p class="standfirst">اضغط على أي محور للانتقال المباشر إلى شريحته التفصيلية ومراجعة أدواته التفاعلية</p>
+
+      <div class="card-grid-5">
+        <button type="button" class="agenda-card" onclick="jumpToSlide('slide-3')">
+          <div>
+            <span class="index-num">01</span>
+            <h3 class="agenda-card-title" style="margin-top: var(--space-sm);">الهيكل العقدي والأدوار</h3>
+            <p class="agenda-card-desc">حدود صلاحيات <span class="ltr-code">HIB</span> و<span class="ltr-code">AECOM</span> و<span class="ltr-code">CM/CS</span> والمقاول و<span class="ltr-code">QCPM</span> وقنوات المخاطبة الرسمية.</p>
+          </div>
+          <span class="tag tag-secondary">الشريحة 03 — <span class="ltr-code">TD020 / TD030</span></span>
+        </button>
+
+        <button type="button" class="agenda-card" onclick="jumpToSlide('slide-4')">
+          <div>
+            <span class="index-num">02</span>
+            <h3 class="agenda-card-title" style="margin-top: var(--space-sm);">التنفيذية مقابل السجل</h3>
+            <p class="agenda-card-desc">الفروق الدقيقة بين <bdi dir="ltr">Shop Drawings</bdi> و<bdi dir="ltr">Record / As-Built Drawings</bdi>.</p>
+          </div>
+          <span class="tag tag-secondary">الشريحة 04 — <span class="ltr-code">TD150 §5, §7</span></span>
+        </button>
+
+        <button type="button" class="agenda-card" onclick="jumpToSlide('slide-5')">
+          <div>
+            <span class="index-num">03</span>
+            <h3 class="agenda-card-title" style="margin-top: var(--space-sm);">قواعد <span class="ltr-code">Primavera P6</span></h3>
+            <p class="agenda-card-desc">ضوابط الإصدار <span class="ltr-code">v6.2+</span>، الدينار الليبي، المسار الحرج الأحمر، وسقف الـ 20 يوماً.</p>
+          </div>
+          <span class="tag tag-secondary">الشريحة 05 — <span class="ltr-code">TD130</span></span>
+        </button>
+
+        <button type="button" class="agenda-card" onclick="jumpToSlide('slide-6')">
+          <div>
+            <span class="index-num">04</span>
+            <h3 class="agenda-card-title" style="margin-top: var(--space-sm);">دورة الاعتمادات والتقديمات</h3>
+            <p class="agenda-card-desc">مسار الـ 4 مراحل (ختم <span class="ltr-code">200×75</span> مم ومهلة 21 يوماً) ومصفوفة التقديمات الكاملة.</p>
+          </div>
+          <span class="tag tag-secondary">الشريحتان 06 و07 — <span class="ltr-code">TD150</span></span>
+        </button>
+
+        <button type="button" class="agenda-card" onclick="jumpToSlide('slide-8')">
+          <div>
+            <span class="index-num">05</span>
+            <h3 class="agenda-card-title" style="margin-top: var(--space-sm);">دراسة الحالة ووصايا المالك</h3>
+            <p class="agenda-card-desc">تحليل مخالفة الصب دون اعتماد بمشروع الفجائج، والوصايا الذهبية الثلاث.</p>
+          </div>
+          <span class="tag tag-secondary">الشريحتان 08 و09 — تطبيق عملي</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 03: CONTRACTUAL STRUCTURE & ROLES
+    ========================================================== -->
+    <section id="slide-3" class="slide-section" data-slide="3" aria-labelledby="slide-3-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 03 / المحور 01</span>
+          <span class="dossier-meta">الهيكل العقدي وأطراف المشروع — <span class="ltr-code">TD020 §1</span> و<span class="ltr-code">TD030 §2</span></span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="3" onclick="toggleSlideReviewed(3)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-3-title" class="slide-title">منظومة الحوكمة التعاقدية وقنوات التواصل الرسمية</h2>
+      <p class="standfirst">انحصار المراسلات عبر <span class="ltr-code">CM/CS</span> واستقلالية <span class="ltr-code">QCPM</span> هما صمام الأمان الأول لحقوق المالك</p>
+
+      <div class="split-grid">
+        <!-- Interactive Hierarchy SVG Diagram -->
+        <div class="org-diagram-wrap">
+          <div class="dossier-meta" style="margin-bottom: var(--space-sm);">اضغط على أي طرف داخل المخطط لاستعراض مهامه وحدوده التعاقدية:</div>
+          <svg viewBox="0 0 500 370" width="100%" role="img" aria-label="المخطط الهرمي التنظيمي لأطراف مشروع الفجائج وقنوات التواصل">
+            <!-- Official solid vertical chain -->
+            <line x1="250" y1="68" x2="250" y2="96" stroke="var(--primary)" stroke-width="2.5"/>
+            <line x1="250" y1="154" x2="250" y2="184" stroke="var(--primary)" stroke-width="2.5"/>
+            <line x1="250" y1="246" x2="250" y2="278" stroke="var(--primary)" stroke-width="2.5"/>
+            <!-- QCPM link to Contractor and CM/CS -->
+            <line x1="155" y1="308" x2="205" y2="308" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="4 3"/>
+            <polyline points="85,278 85,215 160,215" fill="none" stroke="var(--positive)" stroke-width="2" stroke-dasharray="5 3"/>
+
+            <!-- Forbidden direct communication bypass (Contractor to HIB) -->
+            <path d="M 390 308 L 468 308 L 468 40 L 368 40" fill="none" stroke="var(--error)" stroke-width="1.8" stroke-dasharray="5 4"/>
+            <rect x="415" y="155" width="76" height="36" rx="2" fill="var(--error-bg)" stroke="var(--error)" stroke-width="1"/>
+            <text x="453" y="170" text-anchor="middle" fill="var(--error)" font-size="9.5" font-weight="700">تواصل مباشر</text>
+            <text x="453" y="183" text-anchor="middle" fill="var(--error)" font-size="9.5" font-weight="700">محظور عقدياً</text>
+
+            <!-- Node: HIB -->
+            <g class="org-node-btn" onclick="selectOrgRole('hib')" tabindex="0" role="button" aria-label="عرض دور مجلس الإسكان والبنية التحتية HIB">
+              <rect class="org-box" x="135" y="12" width="230" height="56" rx="4" fill="var(--primary)" stroke="var(--primary)" stroke-width="2"/>
+              <text x="250" y="36" text-anchor="middle" fill="var(--on-primary)" font-size="13" font-weight="700">مجلس الإسكان والبنية التحتية (HIB)</text>
+              <text x="250" y="54" text-anchor="middle" fill="var(--primary-container)" font-size="10.5" font-weight="600">الجهة المالكة — إدارة البرنامج عبر PMD</text>
+            </g>
+
+            <!-- Node: AECOM -->
+            <g class="org-node-btn" onclick="selectOrgRole('aecom')" tabindex="0" role="button" aria-label="عرض دور استشاري إدارة البرنامج AECOM">
+              <rect class="org-box" x="135" y="96" width="230" height="58" rx="4" fill="var(--surface-container-low)" stroke="var(--secondary)" stroke-width="2"/>
+              <text x="250" y="120" text-anchor="middle" fill="var(--on-surface)" font-size="13" font-weight="700">استشاري إدارة البرنامج (AECOM)</text>
+              <text x="250" y="139" text-anchor="middle" fill="var(--secondary)" font-size="10.5" font-weight="600">PMC — الإشراف على أنشطة CM/CS</text>
+            </g>
+
+            <!-- Node: CM/CS -->
+            <g class="org-node-btn" onclick="selectOrgRole('cmcs')" tabindex="0" role="button" aria-label="عرض دور مقاول إدارة الإنشاء والإشراف CM/CS">
+              <rect class="org-box" x="118" y="184" width="264" height="62" rx="4" fill="var(--primary-container)" stroke="var(--outline)" stroke-width="2"/>
+              <text x="250" y="209" text-anchor="middle" fill="var(--on-primary-container)" font-size="13" font-weight="700">إدارة الإنشاء والإشراف (CM/CS)</text>
+              <text x="250" y="229" text-anchor="middle" fill="var(--on-primary-container)" font-size="10.5" font-weight="700">القناة الرسمية الوحيدة لمراسلات المقاول</text>
+            </g>
+
+            <!-- Node: Contractor -->
+            <g class="org-node-btn" onclick="selectOrgRole('contractor')" tabindex="0" role="button" aria-label="عرض دور المقاول الرئيسي">
+              <rect class="org-box" x="205" y="278" width="185" height="62" rx="4" fill="var(--surface-container-low)" stroke="var(--outline)" stroke-width="1.8"/>
+              <text x="297" y="303" text-anchor="middle" fill="var(--on-surface)" font-size="12.5" font-weight="700">المقاول الرئيسي</text>
+              <text x="297" y="322" text-anchor="middle" fill="var(--on-surface-variant)" font-size="10.5">استكمال التصميم والتنفيذ</text>
+            </g>
+
+            <!-- Node: QCPM -->
+            <g class="org-node-btn" onclick="selectOrgRole('qcpm')" tabindex="0" role="button" aria-label="عرض دور مدير برنامج ضبط الجودة QCPM">
+              <rect class="org-box" x="16" y="278" width="142" height="62" rx="4" fill="var(--positive-bg)" stroke="var(--positive)" stroke-width="1.8"/>
+              <text x="87" y="302" text-anchor="middle" fill="var(--positive)" font-size="12" font-weight="700">QCPM مستقل</text>
+              <text x="87" y="320" text-anchor="middle" fill="var(--on-surface)" font-size="10">ضبط الجودة والاختبارات</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Adjacent Role Details Panel -->
+        <div>
+          <div class="org-pills-row" role="tablist" aria-label="أطراف الهيكل العقدي">
+            <button type="button" class="role-tab-btn is-active" data-role="hib" onclick="selectOrgRole('hib')">HIB</button>
+            <button type="button" class="role-tab-btn" data-role="aecom" onclick="selectOrgRole('aecom')">AECOM</button>
+            <button type="button" class="role-tab-btn" data-role="cmcs" onclick="selectOrgRole('cmcs')">CM/CS</button>
+            <button type="button" class="role-tab-btn" data-role="contractor" onclick="selectOrgRole('contractor')">المقاول</button>
+            <button type="button" class="role-tab-btn" data-role="qcpm" onclick="selectOrgRole('qcpm')">QCPM</button>
+          </div>
+
+          <div id="org-detail-panel" class="figure-card" aria-live="polite"></div>
+
+          <div class="aside-box" style="margin-top: var(--space-md);">
+            <div class="dossier-meta" style="color: var(--secondary); font-weight: 700;">مرافق الإشراف الإلزامية بالموقع (<span class="ltr-code">TD020 §1.8</span>)</div>
+            <p style="margin: var(--space-xs) 0 0 0; font-size: 0.9375rem;">يلتزم المقاول بتوفير مكاتب مجهزة بالكامل لـ <strong>10 أفراد</strong> من فريق <span class="ltr-code">CM/CS</span>، و<strong>6 مركبات</strong> للفحص الميداني، وإقامة مؤقتة لـ <strong>3 مفتشين</strong> للمتابعة الليلية والصباحية، إضافةً إلى <strong>مكتبين لـ <span class="ltr-code">HIB</span></strong> و<strong>مكتبين لـ <span class="ltr-code">AECOM</span></strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 04: COMPARISON (SHOP vs RECORD DRAWINGS)
+    ========================================================== -->
+    <section id="slide-4" class="slide-section" data-slide="4" aria-labelledby="slide-4-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 04 / المحور 02</span>
+          <span class="dossier-meta">المقارنة الفنية والتعاقدية — <span class="ltr-code">TD150 §5 &amp; §7</span></span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="4" onclick="toggleSlideReviewed(4)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-4-title" class="slide-title">الرسومات التنفيذية مقابل رسومات السجل (حسب التنفيذ)</h2>
+      <p class="standfirst">الخلط بين الوثيقتين يُفقد المالك رقابة ما قبل التنفيذ أو يضيع عليه الخرائط الحقيقية للمنشأ بعد التسليم</p>
+
+      <div class="split-grid-equal">
+        <!-- Column A: Shop Drawings -->
+        <div class="comp-col">
+          <div class="comp-col-header">
+            <div>
+              <span class="tag tag-secondary">ما قبل التنفيذ</span>
+              <h3 style="margin: var(--space-xs) 0 0 0; font-family: var(--font-headline);">الرسومات التنفيذية (<bdi dir="ltr">Shop Drawings</bdi>)</h3>
+            </div>
+            <span class="index-num">TD150 §5</span>
+          </div>
+
+          <div class="comp-row">
+            <div class="comp-row-label">01 — الهدف الجوهري</div>
+            <div>تحويل رسومات العقد إلى تعليمات تصنيع وتثبيت دقيقة ومعتمدة <strong>قبل</strong> البدء بأي تصنيع أو توريد أو صب أو تركيب في الموقع.</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-row-label">02 — المحتوى الفني</div>
+            <div>تفاصيل حديد التسليح، المسارات والتنسيق، قوالب التصنيع، القياسات الميدانية الفعلية المرفوعة قبل التقديم، وتوضيح أي انحراف عن العقد في خطاب الإحالة.</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-row-label">03 — الاعتماد والتوقيت</div>
+            <div>مراجعة <span class="ltr-code">CM/CS</span> خلال <strong>21 يوماً تقويمياً</strong> كحد أقصى؛ الاعتماد لا يعفي المقاول من أخطاء التفاصيل والأبعاد، وتُعاد نسختان فقط كحد أقصى.</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-row-label">04 — الوسائط والنسخ المحددة</div>
+            <div><strong>4 نسخ ورقية</strong> + قرص <span class="ltr-code">CD</span> بملفات <span class="ltr-code">PDF</span> + فراغ ختم <strong><span class="ltr-code">200 × 75</span> مم</strong> ونموذج إحالة <span class="ltr-code">CM/CS</span>.</div>
+          </div>
+        </div>
+
+        <!-- Column B: Record / As-Built Drawings -->
+        <div class="comp-col" style="border-top: var(--border-positive);">
+          <div class="comp-col-header">
+            <div>
+              <span class="tag tag-positive">التوثيق النهائي</span>
+              <h3 style="margin: var(--space-xs) 0 0 0; font-family: var(--font-headline);">رسومات السجل (<bdi dir="ltr">Record / As-Built Drawings</bdi>)</h3>
+            </div>
+            <span class="index-num">TD150 §7</span>
+          </div>
+
+          <div class="comp-row">
+            <div class="comp-row-label">01 — الهدف الجوهري</div>
+            <div>توثيق المواقع والأحجام والتفاصيل الفعلية للأعمال <strong>كما نُفذت</strong> على أرض الواقع لأغراض التشغيل والصيانة وإثبات الإنجاز.</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-row-label">02 — المحتوى الفني</div>
+            <div>مجموعة كاملة ومحدّثة باستمرار أثناء التنفيذ تُحفظ بالموقع للفحص الدوري، مزودة بإحالات مرجعية إلى المواصفات ونشرات البيانات المعتمدة.</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-row-label">03 — الاعتماد والتوقيت</div>
+            <div>موافقة <span class="ltr-code">CM/CS</span> المسبقة على المقاس ونظام الترقيم؛ تقديم <strong>نسختين قبل بدء اختبارات الإنجاز</strong>، وتصحيح أي أخطاء مكتشفة.</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-row-label">04 — الوسائط والنسخ المحددة</div>
+            <div><strong>1 مجموعة على ورق مايلار (<span class="ltr-code">Mylar</span>)</strong> + <strong>1 نسخة رقمية</strong> بالتنسيق المعتمد + <strong>6 نسخ على ورق بوند (<span class="ltr-code">Bond</span>)</strong> + المستندات الداعمة.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 05: PRIMAVERA P6 SCHEDULING RULES
+    ========================================================== -->
+    <section id="slide-5" class="slide-section" data-slide="5" aria-labelledby="slide-5-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 05 / المحور 03</span>
+          <span class="dossier-meta">قواعد المتابعة الزمنية الميدانية — <span class="ltr-code">TD130</span></span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="5" onclick="toggleSlideReviewed(5)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-5-title" class="slide-title">ضوابط الجدول الزمني في برنامج <span class="ltr-code">Primavera P6</span></h2>
+      <p class="standfirst">مؤشرات التفتيش السريع للمهندس الجديد لكشف التلاعب بالمدد أو إخفاء المسار الحرج</p>
+
+      <!-- 4 Key Rule Metric Cards -->
+      <div class="kpi-grid" style="margin-bottom: var(--space-lg);">
+        <div class="figure-card">
+          <div class="kpi-label">الإصدار واللغة والوحدة</div>
+          <div class="kpi-value ltr-code">P6 v6.2+</div>
+          <div class="dossier-meta">اللغة الإنجليزية — وحدة التخطيط: اليوم (8 ساعات/يوم)</div>
+        </div>
+        <div class="figure-card">
+          <div class="kpi-label">العملة المعتمدة والتنسيق</div>
+          <div class="kpi-value ltr-code">LYD 0.00</div>
+          <div class="dossier-meta">الدينار الليبي — منزلتان عشريتان، نقطة (.) وفاصلة (,)</div>
+        </div>
+        <div class="figure-card" style="border-top: var(--border-alert);">
+          <div class="kpi-label">تمثيل المسار الحرج</div>
+          <div class="kpi-value" style="color: var(--error);">الأحمر — <span class="ltr-code">Longest Path</span></div>
+          <div class="dossier-meta">منطق <span class="ltr-code">Retained Logic</span> وخطوط علاقات ظاهرة</div>
+        </div>
+        <div class="figure-card">
+          <div class="kpi-label">الحد الأقصى لمدة النشاط</div>
+          <div class="kpi-value tabular">20 يوماً</div>
+          <div class="dossier-meta">باستثناء التقديمات والمشتريات، ما لم يأذن العميل</div>
+        </div>
+      </div>
+
+      <!-- Interactive P6 Schedule Auditor -->
+      <div class="split-grid">
+        <div>
+          <ul class="brief-list" style="margin-bottom: var(--space-md);">
+            <li><strong>تحميل الموارد والتكاليف إلزامي:</strong> ربط كل نشاط بعمالة ومعدات ومواد وبمعرف فريد وفق <span class="ltr-code">WBS</span>.</li>
+            <li><strong>حظر الإعدادات العامة:</strong> يُمنع استخدام <bdi dir="ltr">Global Calendars</bdi> أو <bdi dir="ltr">Global Activity Codes</bdi>، وتُدرج العطلات الوطنية والدينية الليبية.</li>
+            <li><strong>حظر القيود والتأخير:</strong> لا يُسمح بـ <span class="ltr-code">Constraints</span> أو <span class="ltr-code">Lags</span> إلا بموافقة خطية من مدير البرنامج.</li>
+            <li><strong>مواعيد التحديث الشهري:</strong> تاريخ البيانات اليوم <strong>10 من كل شهر</strong>، والتقديم خلال 5 أيام بصيغ <span class="ltr-code">.XER</span> و<span class="ltr-code">.PDF</span> و3 نسخ ورقية <span class="ltr-code">A3</span> ملونة.</li>
+          </ul>
+
+          <div class="aside-box">
+            <div class="field-label" style="margin-bottom: var(--space-xs);">اختبر يقظة مهندس المالك في مراجعة جدول <span class="ltr-code">P6</span>:</div>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+              <button type="button" class="btn btn-secondary btn-sm p6-mode-btn" data-p6mode="compliant" onclick="setP6Mode('compliant')">جدول مطابق للمواصفة</button>
+              <button type="button" class="btn btn-secondary btn-sm p6-mode-btn" data-p6mode="duration25" onclick="setP6Mode('duration25')">محاكاة: نشاط 25 يوماً</button>
+              <button type="button" class="btn btn-secondary btn-sm p6-mode-btn" data-p6mode="shortcut" onclick="setP6Mode('shortcut')">محاكاة: تقليص مراجعة 21 يوماً</button>
+            </div>
+            <div id="p6-audit-feedback" style="margin-top: var(--space-sm); font-size: 0.92rem;" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="gantt-panel" aria-label="تمثيل بياني للمسار الحرج في Primavera P6">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="dossier-meta">نموذج بصري للمسار الحرج (<span class="ltr-code">Longest Path</span>) — مشروع الفجائج</span>
+            <span class="tag tag-error">الأحمر = مسار حرج</span>
+          </div>
+          <div id="gantt-container"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 06: APPROVAL CYCLE WORKFLOW
+    ========================================================== -->
+    <section id="slide-6" class="slide-section" data-slide="6" aria-labelledby="slide-6-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 06 / المحور 04</span>
+          <span class="dossier-meta">دورة الاعتمادات الإجرائية — <span class="ltr-code">TD150 §2–3</span> و<span class="ltr-code">TD022 §6.2</span></span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="6" onclick="toggleSlideReviewed(6)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-6-title" class="slide-title">مسار العمل ذو الـ 4 مراحل لاعتماد التقديمات</h2>
+      <p class="standfirst">أربع بوابات رقابية متسلسلة تنتهي بحظر قاطع للتنفيذ أو التوريد قبل الاعتماد المكتوب</p>
+
+      <!-- 4-Stage Interactive Stepper -->
+      <div class="workflow-steps" role="tablist" aria-label="مراحل دورة الاعتمادات">
+        <button type="button" class="step-btn is-active" data-step="1" onclick="selectWorkflowStep(1)">
+          <span class="step-num-pill">المرحلة 01</span>
+          <strong>التقديم الرسمي</strong>
+        </button>
+        <button type="button" class="step-btn" data-step="2" onclick="selectWorkflowStep(2)">
+          <span class="step-num-pill">المرحلة 02</span>
+          <strong>الاشتراطات الشكلية (<span class="ltr-code">200×75</span> مم)</strong>
+        </button>
+        <button type="button" class="step-btn" data-step="3" onclick="selectWorkflowStep(3)">
+          <span class="step-num-pill">المرحلة 03</span>
+          <strong>المراجعة الفنية (21 يوماً)</strong>
+        </button>
+        <button type="button" class="step-btn" data-step="4" onclick="selectWorkflowStep(4)">
+          <span class="step-num-pill">المرحلة 04</span>
+          <strong>القرار: حظر التنفيذ دون اعتماد</strong>
+        </button>
+      </div>
+
+      <div class="split-grid">
+        <div id="workflow-detail-box" class="figure-card" aria-live="polite"></div>
+
+        <!-- Visual Blueprint of 200x75 mm Stamp Box & 21-Day Gate -->
+        <div class="figure-card">
+          <div class="dossier-meta" style="margin-bottom: var(--space-sm);">المعايير البصرية الإلزامية على لوحة الرسم التنفيذي (<span class="ltr-code">TD150 §2.6 &amp; §3.4</span>)</div>
+          <svg viewBox="0 0 460 215" width="100%" aria-hidden="true" style="display:block; background: var(--background); border: 1px solid var(--outline-variant); border-radius: var(--rounded);">
+            <!-- Drawing sheet outline -->
+            <rect x="14" y="14" width="432" height="187" fill="var(--surface-container-low)" stroke="var(--primary)" stroke-width="2"/>
+            <!-- Drawing area -->
+            <rect x="24" y="24" width="248" height="167" fill="none" stroke="var(--outline-variant)" stroke-dasharray="4 3"/>
+            <text x="148" y="46" text-anchor="middle" fill="var(--on-surface-variant)" font-size="11" font-weight="600">منطقة التفاصيل والقياسات الميدانية</text>
+            <!-- Revision triangle -->
+            <polygon points="62,92 78,66 94,92" fill="var(--primary-container)" stroke="var(--outline)" stroke-width="1.5"/>
+            <text x="78" y="88" text-anchor="middle" fill="var(--on-primary-container)" font-size="10" font-weight="700">1</text>
+            <text x="148" y="86" text-anchor="middle" fill="var(--on-surface)" font-size="10.5">مثلث التعديل (<bdi dir="ltr">Revision Δ</bdi>)</text>
+            <text x="148" y="103" text-anchor="middle" fill="var(--on-surface-variant)" font-size="9.5">إلزامي عند إعادة التقديم لأي تعديل غير مطلوب</text>
+
+            <!-- 21-day bar -->
+            <rect x="38" y="132" width="220" height="36" rx="2" fill="var(--secondary-bg)" stroke="var(--secondary)" stroke-width="1.2"/>
+            <text x="148" y="148" text-anchor="middle" fill="var(--secondary)" font-size="10.5" font-weight="700">مهلة المراجعة القصوى: 21 يوماً تقويمياً</text>
+            <text x="148" y="162" text-anchor="middle" fill="var(--on-surface-variant)" font-size="9">لا تبدأ الأعمال ولا يُصنّع البند خلالها</text>
+
+            <!-- Title Block & 200x75mm Stamp Box -->
+            <rect x="282" y="24" width="154" height="62" fill="var(--surface-container)" stroke="var(--outline)" stroke-width="1.2"/>
+            <text x="359" y="42" text-anchor="middle" fill="var(--on-surface)" font-size="10" font-weight="700">جدول البيانات (<span class="ltr-code">TD150 §2.6</span>)</text>
+            <text x="359" y="57" text-anchor="middle" fill="var(--on-surface-variant)" font-size="9">المشروع • المقاول • المورّد • المصنّع</text>
+            <text x="359" y="71" text-anchor="middle" fill="var(--on-surface-variant)" font-size="9">رقم المواصفة والصفحة والانحرافات</text>
+
+            <rect x="282" y="96" width="154" height="95" fill="var(--warning-bg)" stroke="var(--tertiary)" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="359" y="132" text-anchor="middle" fill="var(--tertiary)" font-size="11.5" font-weight="700">مساحة فارغة للأختام</text>
+            <text x="359" y="150" text-anchor="middle" fill="var(--on-surface)" font-size="12" font-weight="700">200 مم × 75 مم</text>
+            <text x="359" y="168" text-anchor="middle" fill="var(--on-surface-variant)" font-size="9">ختم المقاول + ختم <span class="ltr-code">CM/CS</span></text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 07: INTERACTIVE SUBMITTALS MATRIX
+    ========================================================== -->
+    <section id="slide-7" class="slide-section" data-slide="7" aria-labelledby="slide-7-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 07 / المحور 04</span>
+          <span class="dossier-meta">جدول التقديمات المتكامل — مصفوفة تفاعلية للنسخ والمهل والمخاطر</span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="7" onclick="toggleSlideReviewed(7)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-7-title" class="slide-title">مصفوفة التقديمات العقدية: النسخ والوسائط والمهل الزمنية</h2>
+      <p class="standfirst">اختر فئة التقديم أو اضغط على أي صف لاستعراض متطلبات القبول والمخاطر العقدية المترتبة على مخالفته</p>
+
+      <div class="filter-row">
+        <div class="field-group">
+          <label for="submittal-category" class="field-label">تصفية حسب الفئة</label>
+          <select id="submittal-category" class="field-select" onchange="filterSubmittals()">
+            <option value="all">جميع التقديمات (7 فئات)</option>
+            <option value="drawings">الرسومات الفنية والتصميمية</option>
+            <option value="materials">بيانات المنتجات والعينات</option>
+            <option value="planning">الجدول الزمني والجودة والجيوتقنية</option>
+          </select>
+        </div>
+        <div class="field-group" style="flex: 1;">
+          <label for="submittal-search" class="field-label">بحث باسم التقديم أو المرجع (مثل Mylar أو 21 أو QAP)</label>
+          <input id="submittal-search" type="text" class="field-input" oninput="filterSubmittals()" placeholder="ابحث هنا…">
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="dossier-table">
+          <thead>
+            <tr>
+              <th>نوع التقديم</th>
+              <th>المرجع العقدي</th>
+              <th>النسخ والوسائط المحددة</th>
+              <th>المهلة / التوقيت</th>
+              <th>المخاطر العقدية عند المخالفة</th>
+            </tr>
+          </thead>
+          <tbody id="submittals-tbody"></tbody>
+        </table>
+      </div>
+
+      <div id="submittal-inspector" class="aside-box" style="margin-top: var(--space-md);" aria-live="polite"></div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 08: CASE STUDY (AL FAJAIJ PROJECT)
+    ========================================================== -->
+    <section id="slide-8" class="slide-section" data-slide="8" aria-labelledby="slide-8-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 08 / المحور 05</span>
+          <span class="dossier-meta">دراسة حالة وتطبيق عملي — مشروع الفجائج (97 وحدة / 14.15 هكتار)</span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="8" onclick="toggleSlideReviewed(8)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-8-title" class="slide-title">دراسة حالة: صب الخرسانة أو تركيب المواد دون اعتماد مكتوب</h2>
+      <p class="standfirst">كيف يتصرف مهندس المالك عند تعارض ضغط التنفيذ الميداني مع حوكمة الاعتماد الصارمة في موقع الفجائج؟</p>
+
+      <div class="split-grid">
+        <!-- Case Context & Strict Contractual Procedure -->
+        <div style="display: grid; gap: var(--space-md);">
+          <div class="figure-card">
+            <div class="dossier-meta" style="color: var(--secondary); font-weight: 700; margin-bottom: var(--space-xs);">بيانات الحالة الميدانية</div>
+            <p style="margin: 0;">في القطاع (أ) من مشروع الفجائج السكني (<strong>97 وحدة منفصلة</strong> على مساحة <strong>14.15 هكتار</strong>)، أبلغ المقاول عن جاهزيته لصب قواعد الخرسانة المسلحة لعدد 6 وحدات وتركيب مواسير التغذية، مبرراً أن الرسومات التنفيذية (<span class="ltr-code">Shop Drawings</span>) وبيانات العزل البيتوميني قد قُدمت منذ 12 يوماً ولم تكتمل فترة الـ 21 يوماً، مستنداً إلى «تفاهم شفهي» مع مهندس الموقع.</p>
+          </div>
+
+          <div class="alert-box">
+            <div class="alert-box-title">الإجراء العقدي الصارم المعتمد (المرجع <span class="ltr-code">TD150 §2.4</span> و<span class="ltr-code">TD022 §6.2.11</span>)</div>
+            <ul class="brief-list">
+              <li><strong>الوقف الفوري:</strong> منع الصب والتركيب فوراً؛ لا يجوز البدء بأي جزء أو تصنيع أو تركيب مواد قبل الاعتماد المكتوب أو المشروط.</li>
+              <li><strong>تحميل المخاطرة كاملة للمقاول:</strong> أي أعمال تُنفذ دون اعتماد تقع على مسؤولية المقاول ومخاطرته (<bdi dir="ltr">Contractor’s Risk</bdi>)، ولا تتحمل <span class="ltr-code">HIB</span> أي نفقات أو تأخير.</li>
+              <li><strong>التصحيح والإزالة على نفقته:</strong> يُلزم المقاول بالفحص الإتلافي/غير الإتلافي أو الهدم وإعادة التنفيذ لتصحيح المخالفة على نفقته الخاصة (<span class="ltr-code">TD150 §2.3</span>).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interactive Owner's Engineer Decision Simulator -->
+        <div class="figure-card">
+          <div class="dossier-bar">
+            <span class="dossier-meta">محاكي قرار مهندس المالك</span>
+            <span class="tag">اختر الإجراء الصحيح</span>
+          </div>
+          <p style="margin-top: 0; font-weight: 600;">إذا أصر المقاول على الصب اليوم بحجة تفادي تأخير الجدول الزمني (<span class="ltr-code">P6</span>)، ما هو موقفك المهني الرسمي؟</p>
+
+          <div style="display: grid; gap: var(--space-sm);">
+            <button type="button" class="option-card" data-case-opt="a" onclick="evaluateCaseDecision('a')">
+              <span class="index-num">أ</span>
+              <span>السماح بالصب لتفادي تأخير المسار الحرج، مع توقيع تعهد شفهي من المقاول بتحمل المسؤولية لاحقاً.</span>
+            </button>
+            <button type="button" class="option-card" data-case-opt="b" onclick="evaluateCaseDecision('b')">
+              <span class="index-num">ب</span>
+              <span>إبلاغ المقاول مباشرة بصفتك مهندس المالك بإلغاء مراجعة <span class="ltr-code">CM/CS</span> والموافقة على الرسم التنفيذي في الموقع.</span>
+            </button>
+            <button type="button" class="option-card" data-case-opt="c" onclick="evaluateCaseDecision('c')">
+              <span class="index-num">ج</span>
+              <span>توثيق الحظر عبر <span class="ltr-code">CM/CS</span> و<span class="ltr-code">QCPM</span> بموجب <span class="ltr-code">TD150 §2.4</span>، ورفض الصب قبل انتهاء المراجعة والاعتماد المكتوب، وربط التحقق بالمتطلبات الجيوتقنية (<span class="ltr-code">100 مم</span> خرسانة نظافة وطبقتي بيتومين ساخن).</span>
+            </button>
+          </div>
+
+          <div id="case-feedback" class="aside-box" style="margin-top: var(--space-md);" aria-live="polite">
+            اختر أحد البدائل أعلاه لاختبار التكييف العقدي للموقف.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SLIDE 09: SUMMARY & 3 GOLDEN COMMANDMENTS
+    ========================================================== -->
+    <section id="slide-9" class="slide-section" data-slide="9" aria-labelledby="slide-9-title">
+      <div class="dossier-bar">
+        <div class="dossier-bar-start">
+          <span class="dossier-pill">الشريحة 09 / الخلاصة</span>
+          <span class="dossier-meta">الوصايا الذهبية الثلاث لمهندس المالك — <span class="ltr-code">HIB</span></span>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm slide-check-btn" data-slide-check="9" onclick="toggleSlideReviewed(9)">تحديد كمقروءة</button>
+      </div>
+
+      <h2 id="slide-9-title" class="slide-title">الوصايا الذهبية الثلاث لحماية حقوق جهة المالك</h2>
+      <p class="standfirst">ميثاق العمل اليومي لمهندسي مجلس الإسكان والبنية التحتية في موقع الفجائج وكافة المشاريع السكنية</p>
+
+      <div class="commandments-grid" style="margin-bottom: var(--space-lg);">
+        <article class="commandment-card">
+          <span class="index-num">الوصية 01</span>
+          <h3 style="margin: 0; font-family: var(--font-headline); font-size: 1.25rem;">التحقق من أختام الاعتماد قبل التنفيذ</h3>
+          <p style="margin: 0;">لا يُسمح بأي صب خرساني أو توريد أو تركيب قبل التحقق من وجود أختام الاعتماد المكتوبة ضمن مساحة <span class="ltr-code">200×75</span> مم على الرسومات التنفيذية، واعتماد العينات وخطة <span class="ltr-code">QAP</span>.</p>
+          <span class="tag tag-positive">المرجع: <span class="ltr-code">TD150 §2.4 &amp; TD030 §2.1</span></span>
+        </article>
+
+        <article class="commandment-card">
+          <span class="index-num">الوصية 02</span>
+          <h3 style="margin: 0; font-family: var(--font-headline); font-size: 1.25rem;">حصر المخاطبات عبر <span class="ltr-code">CM/CS</span></h3>
+          <p style="margin: 0;">القناة الرسمية الوحيدة بين المقاول والمشروع هي مقاول إدارة الإنشاء والإشراف (<span class="ltr-code">CM/CS</span>)؛ يُحظر قبول أو إصدار أي توجيهات منفردة تتجاوز هذا المسار التعاقدي.</p>
+          <span class="tag tag-secondary">المرجع: <span class="ltr-code">TD020 §1.2 &amp; TD150 §1.2</span></span>
+        </article>
+
+        <article class="commandment-card">
+          <span class="index-num">الوصية 03</span>
+          <h3 style="margin: 0; font-family: var(--font-headline); font-size: 1.25rem;">حظر التعديلات غير الرسمية</h3>
+          <p style="margin: 0;">أي تعديل على مخطط معتمد أو جدول <span class="ltr-code">P6</span> يتطلب إخطاراً مكتوباً مسبقاً، ومثلثات تعديل على الرسومات، وإخطاراً قبل <span class="ltr-code">7</span> أيام عمل عند مساس التصحيح بمستندات العقد.</p>
+          <span class="tag tag-error">المرجع: <span class="ltr-code">TD150 §2.1.1, §3.4, §3.6, §3.7</span></span>
+        </article>
+      </div>
+
+      <!-- Trainee Readiness Pledge & Export Action -->
+      <div class="aside-box" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-md);">
+        <div>
+          <strong style="display: block;">خلاصة الجاهزية التدريبية (<span class="ltr-code">HIB-22</span>)</strong>
+          <span id="final-summary-status" class="dossier-meta">قم بتحديد الشرائح المقروءة وحل دراسة الحالة لتوثيق جاهزيتك الميدانية.</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+          <button type="button" class="btn btn-primary" onclick="exportTrainingSummary()">تنزيل بطاقة المراجعة (<span class="ltr-code">.txt</span>)</button>
+          <button type="button" id="reset-progress-btn" class="btn btn-secondary" onclick="handleResetProgress(this)">إعادة ضبط التقدم</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="dossier-meta" style="text-align: center; padding-bottom: var(--space-2xl);">
+      المصادر المعتمدة: وثيقة معايير التصميم لمشروعات الإسكان (يونيو 2009)، المواصفات <span class="ltr-code">TD020</span>، <span class="ltr-code">TD022</span>، <span class="ltr-code">TD030</span>، <span class="ltr-code">TD130</span>، <span class="ltr-code">TD150</span>، <span class="ltr-code">TD400</span>، <span class="ltr-code">TD410</span>، <span class="ltr-code">TD600</span>، وقالب التدريب الهندسي <span class="ltr-code">HIB-22</span>.
+    </footer>
+
+  </main>
+
+  <!-- Floating Slide Stepper Dock -->
+  <nav class="slide-dock" aria-label="التنقل السريع بين الشرائح">
+    <button type="button" class="dock-btn" onclick="stepSlide(-1)" aria-label="الشريحة السابقة">السابق</button>
+    <span class="dock-status tabular" id="dock-status">الشريحة 01 / 09</span>
+    <button type="button" class="dock-btn" onclick="stepSlide(1)" aria-label="الشريحة التالية">التالي</button>
+  </nav>
+
+  <api-shim></api-shim>
+  <script>
+    const TOTAL_SLIDES = 9;
+    let appState = {
+      currentSlide: 1,
+      reviewedSlides: [],
+      selectedOrgRole: `hib`,
+      p6Mode: `compliant`,
+      workflowStep: 1,
+      selectedSubmittalId: `shop`,
+      caseDecision: null
+    };
+
+    const ORG_ROLES = {
+      hib: {
+        title: `مجلس الإسكان والبنية التحتية (HIB) — المالك`,
+        badge: `المرجع: TD020 §1.1, §1.5 & TD410 §1.3`,
+        bullets: [
+          `يمثل جهة المالك عبر إدارة البرامج (PMD)، ويشرف على أعمال استشاري إدارة البرنامج (AECOM).`,
+          `يعتمد السياسات ومعايير الجودة، ويستلم الوحدات السكنية الـ 97 مكتملة وجاهزة للإشغال والتشغيل.`,
+          `لا يتحمل أي تكلفة أو تأخير ناتج عن تنفيذ المقاول أعمالاً دون اعتماد رسومات تنفيذية (TD150 §2.4).`
+        ]
+      },
+      aecom: {
+        title: `استشاري إدارة البرنامج (AECOM / PMC)`,
+        badge: `المرجع: TD020 §1.1 & TD130 §5.3`,
+        bullets: [
+          `يتولى إدارة ومراقبة أنشطة مقاول إدارة الإنشاء والإشراف (CM/CS) نيابة عن مجلس الإسكان والبنية التحتية.`,
+          `يستقبل تقارير مراجعة الجداول الزمنية الشهرية من CM/CS خلال 5 أيام تقويمية من استلامها.`,
+          `يُشترط الحصول على موافقته الخطية كمدير للبرنامج قبل استخدام أي قيود (Constraints) أو فترات تأخير (Lags) في P6.`
+        ]
+      },
+      cmcs: {
+        title: `مقاول إدارة الإنشاء والإشراف (CM/CS)`,
+        badge: `المرجع: TD020 §1.2 & TD150 §1.2, §3.1`,
+        bullets: [
+          `القناة الحصرية الوحيدة لجميع مراسلات المقاول وتقديماته؛ لا تُقبل أي اتصالات تتجاوز CM/CS.`,
+          `يفحص ويراجع الرسومات التنفيذية والعينات والبيانات خلال مهلة لا تتجاوز 21 يوماً تقويمياً.`,
+          `الجهة الوحيدة المخولة بالحكم على اكتمال التقديم أو رفض التقديمات الجزئية، والتشاور مع HIB وPMD في التغييرات الجوهرية.`
+        ]
+      },
+      contractor: {
+        title: `المقاول الرئيسي (Main Contractor)`,
+        badge: `المرجع: TD020 §1.4, §3.1 & TD022 §1.5`,
+        bullets: [
+          `مسؤول عن استكمال التصميم التفصيلي (30%، 60%، 90%، 100%)، وتسوية كامل مساحة الـ 14.15 هكتار، وتنفيذ 97 وحدة.`,
+          `يُعد جدول الكميات (BOQ) خلال 60 يوماً من أمر المباشرة، وجدول الإنشاء خلال 15 يوماً.`,
+          `يتحمل على نفقته الخاصة تصحيح جميع الأخطاء والسهو والتعارضات وأضرار الموقع دون تحميل HIB أي نفقات.`
+        ]
+      },
+      qcpm: {
+        title: `مدير برنامج ضبط الجودة المستقل (QCPM)`,
+        badge: `المرجع: TD030 §2.1 & §3.1`,
+        bullets: [
+          `شركة مستقلة تماماً عن المقاول أو مقاولي الباطن، بخبرة لا تقل عن 10 سنوات في التفتيش المماثل.`,
+          `تُنفذ خطة ضمان الجودة (QAP) المقدمة خلال 28 يوماً من الترسية؛ ويُحظر بدء التصميم أو الإنشاء قبل اعتمادها من CM/CS.`,
+          `يتولى التنسيق مع مختبرات معتمدة أو إنشاء مختبر موقعي والتحقق من معايرة أجهزة الاختبار وفق المعايير.`
+        ]
+      }
+    };
+
+    const P6_SCENARIOS = {
+      compliant: {
+        bars: [
+          { name: `تجهيز الموقع والتسوية (14.15 هكتار)`, left: 0, width: 16, type: `critical`, days: `15 يوم` },
+          { name: `التحريات الجيوتقنية والجسات (TD410)`, left: 16, width: 14, type: `critical`, days: `14 يوم` },
+          { name: `اعتماد المخططات التنفيذية للأساسات`, left: 30, width: 22, type: `critical`, days: `21 يوم` },
+          { name: `توريد حديد التسليح (بند مشتريات مستثنى)`, left: 22, width: 32, type: `non-critical`, days: `30 يوم` },
+          { name: `حفر وصب أساسات القطاع أ`, left: 52, width: 18, type: `critical`, days: `18 يوم` },
+          { name: `تمديد البنية التحتية الفرعية داخل الحدود`, left: 60, width: 16, type: `non-critical`, days: `15 يوم` }
+        ],
+        message: `<span class="tag tag-positive">مطابق للمواصفة TD130</span> جميع أنشطة التنفيذ أقل من 20 يوماً، والمسار الحرج (الأطول) مظلل بالأحمر، ومهلة اعتماد الرسومات التنفيذية محفوظة بـ 21 يوماً.`
+      },
+      duration25: {
+        bars: [
+          { name: `تجهيز الموقع والتسوية (14.15 هكتار)`, left: 0, width: 16, type: `critical`, days: `15 يوم` },
+          { name: `التحريات الجيوتقنية والجسات (TD410)`, left: 16, width: 14, type: `critical`, days: `14 يوم` },
+          { name: `اعتماد المخططات التنفيذية للأساسات`, left: 30, width: 22, type: `critical`, days: `21 يوم` },
+          { name: `حفر وصب أساسات القطاع أ (مخالف!)`, left: 52, width: 30, type: `violation`, days: `25 يوم` },
+          { name: `تمديد البنية التحتية الفرعية داخل الحدود`, left: 60, width: 16, type: `non-critical`, days: `15 يوم` }
+        ],
+        message: `<span class="tag tag-error">مخالفة البند TD130 §2.14</span> تجاوز نشاط الإنشاء سقف <strong>20 يوماً</strong> دون تفويض صريح من العميل؛ يجب على مهندس المالك رفض التحديث وإلزام المقاول بتقسيم النشاط.`
+      },
+      shortcut: {
+        bars: [
+          { name: `تجهيز الموقع والتسوية (14.15 هكتار)`, left: 0, width: 16, type: `critical`, days: `15 يوم` },
+          { name: `التحريات الجيوتقنية والجسات (TD410)`, left: 16, width: 14, type: `critical`, days: `14 يوم` },
+          { name: `مراجعة المخططات التنفيذية (مقلّص مصطنع!)`, left: 30, width: 10, type: `violation`, days: `10 أيام` },
+          { name: `حفر وصب أساسات القطاع أ`, left: 40, width: 18, type: `critical`, days: `18 يوم` },
+          { name: `تمديد البنية التحتية الفرعية داخل الحدود`, left: 48, width: 16, type: `non-critical`, days: `15 يوم` }
+        ],
+        message: `<span class="tag tag-error">مخالفة البند TD130 §4.3.1 &amp; §4.3.3</span> يُحظر التقليص المصطنع لمدد المراجعة التعاقدية أو ربط التصنيع والصب قبل استيفاء اعتماد الرسومات التنفيذية.`
+      }
+    };
+
+    const WORKFLOW_STEPS = {
+      1: {
+        title: `المرحلة 01 — الإعداد والتقديم الرسمي`,
+        tag: `المرجع: TD150 §2.6, §5.2, §5.4`,
+        points: [
+          `يُقدم الطلب حصراً باستخدام نموذج الإحالة المعتمد من CM/CS مرفقاً بـ 4 نسخ ورقية وقرص CD بصيغة PDF.`,
+          `يجب تدوين تاريخ التقديم والتقديمات السابقة، ورقم المشروع، واسم المقاول والمورّد والمصنّع، ورقم المواصفة.`,
+          `توثيق القياسات الميدانية الفعلية بوضوح، والإفصاح الصريح عن أي انحراف عن مستندات العقد في خطاب مرفق.`
+        ]
+      },
+      2: {
+        title: `المرحلة 02 — الفحص الشكلي واشتراط الختم (200×75 مم)`,
+        tag: `المرجع: TD150 §2.6 (bullet 11) &amp; §3.5`,
+        points: [
+          `التحقق من وجود مساحة فارغة بمقاس 200 مم × 75 مم مخصصة لأختام مراجعة المقاول وCM/CS.`,
+          `التقديمات الجزئية أو الناقصة لا تُراجع وتُعاد فوراً للمقاول باعتبارها «مرفوضة» (Rejected) حتى تكتمل.`,
+          `في التقديمات المعادة، يلزم إبراز أي تعديلات إضافية بمثلثات التعديل (Revision Triangles) وخطاب الإحالة.`
+        ]
+      },
+      3: {
+        title: `المرحلة 03 — المراجعة الفنية خلال 21 يوماً تقويمياً`,
+        tag: `المرجع: TD150 §2.1, §3.1, §3.2 &amp; TD022 §6.2.7`,
+        points: [
+          `تستغرق مراجعة CM/CS مدة لا تتجاوز 21 يوماً تقويمياً من تاريخ الاستلام للتأكد من المطابقة العامة للتصميم.`,
+          `المراجعة العامة لا تعفي المقاول من مسؤوليته عن الأخطاء أو الأبعاد أو المواد، ولا تسمح بالخروج عن العقد.`,
+          `إذا رأى المقاول أن تصحيح CM/CS يمثل تغييراً تعاقدياً، فعليه الإخطار كتابياً قبل التصنيع بـ 7 أيام عمل على الأقل.`
+        ]
+      },
+      4: {
+        title: `المرحلة 04 — القرار الحاسم: حظر التنفيذ دون اعتماد`,
+        tag: `المرجع: TD150 §2.4 &amp; TD022 §6.2.11`,
+        points: [
+          `يُحظر تماماً بدء أي أعمال، أو تصنيع مواد، أو شرائها، أو تركيبها قبل صدور الاعتماد أو الاعتماد المشروط.`,
+          `أي أعمال أو مشتريات تخالف الرسومات المعتمدة تقع على مخاطرة المقاول الكاملة (Contractor’s Risk).`,
+          `لا تتحمل HIB أي تكاليف أو تأخيرات زمنية ناجمة عن إزالة أو تصحيح الأعمال غير المعتمدة.`
+        ]
+      }
+    };
+
+    const SUBMITTALS_DATA = [
+      {
+        id: `shop`,
+        category: `drawings`,
+        name: `الرسومات التنفيذية (Shop Drawings)`,
+        ref: `TD150 §2.5.1, §5`,
+        copies: `4 نسخ ورقية + قرص CD (ملفات PDF) + مساحة ختم 200×75 مم`,
+        timeline: `مراجعة CM/CS خلال 21 يوماً تقويمياً (تُعاد نسختان كحد أقصى)`,
+        risk: `حظر التصنيع والتركيب مسبقاً؛ التنفيذ بدونها على مخاطرة المقاول ونفقته.`,
+        detail: `تشمل رسومات حديد التسليح، التفاصيل الإنشائية، مسارات الأنابيب، التنسيق، وقياسات الحقل الفعلية، وتُرفع بنموذج إحالة CM/CS مع توضيح أي انحراف عن العقد.`
+      },
+      {
+        id: `product`,
+        category: `materials`,
+        name: `بيانات المنتجات (Product Data)`,
+        ref: `TD150 §2.5.2, §4 &amp; TD600`,
+        copies: `4 نسخ ورقية + قرص CD (ملفات PDF)`,
+        timeline: `مراجعة CM/CS خلال 21 يوماً تقويمياً (تُعاد نسختان كحد أقصى)`,
+        risk: `رفض المواد الموردة بالموقع؛ اشتراط شهادات الجودة والبيئة والسلامة للمصنّع.`,
+        detail: `تتضمن مواصفات المصنّع، الكتالوجات، منحنيات الأداء، مخططات التمديدات، شهادات المطابقة لمعايير BS/ASTM/EN، واختبارات ضبط الجودة وتجهيزات المختبر.`
+      },
+      {
+        id: `samples`,
+        category: `materials`,
+        name: `العينات المادية ولوحة التشطيبات (Samples)`,
+        ref: `TD150 §3.3, §6 &amp; TD022 §1.12`,
+        copies: `عينات مادية مدموغة ببطاقة (المصدر/المصنّع/الاستخدام) + لوحة عينات وصالة عرض`,
+        timeline: `مراجعة CM/CS خلال 21 يوماً تقويمياً (العينات لا تُعاد للمقاول)`,
+        risk: `رفض أي توريدات مستقبلية لا تطابق جودة العينة المعتمدة.`,
+        detail: `يشترط وجود خبير تصميم داخلي بخبرة لا تقل عن 10 سنوات ومعرفة بالثقافة الليبية لإعداد لوحات العينات وعرضها في صالة عرض مستمرة طوال المشروع.`
+      },
+      {
+        id: `record`,
+        category: `drawings`,
+        name: `رسومات السجل / حسب التنفيذ (Record Drawings)`,
+        ref: `TD150 §7`,
+        copies: `1 مجموعة ورق مايلار (Mylar) + 1 نسخة رقمية + 6 نسخ ورق بوند (Bond) + المستندات الداعمة`,
+        timeline: `تحديث مستمر بالموقع، وتقديم نسختين قبل بدء اختبارات الإنجاز`,
+        risk: `تعطل اختبارات الإنجاز النهائية والاستلام الأولي للمشروع.`,
+        detail: `تعرض المواقع والأحجام والتفاصيل الفعلية كما نُفذت مع الإحالات المرجعية للمواصفات، بعد موافقة CM/CS على المقاسات ونظام الإحالة المرجعية.`
+      },
+      {
+        id: `design`,
+        category: `drawings`,
+        name: `تقديمات التصميم وجدول الكميات (Design &amp; BOQ)`,
+        ref: `TD022 §1.5, §5.6, §6.2`,
+        copies: `6 نسخ ورقية + 6 نسخ إلكترونية على CD (موقعة ومختومة من المصمم)`,
+        timeline: `مراحل 30%، 60%، 90%، 100%؛ جدول التقديمات خلال أسبوعين؛ BOQ خلال 60 يوماً`,
+        risk: `عدم اعتماد جدول الكميات يُوقف أساس الدفع الشهري، وتعثر مراحل التصميم يوقف البناء.`,
+        detail: `يشمل التصميم الأولي (30%) والتصميم النهائي (60%، 90%، 100%) مع الحسابات والتقارير ومواصفات العقد والجدول الزمني المحدّث.`
+      },
+      {
+        id: `schedule`,
+        category: `planning`,
+        name: `الجدول الزمني الأولي والتحديث الشهري (Primavera P6)`,
+        ref: `TD130 §3, §4, §5`,
+        copies: `ملف .XER + .PDF (تقرير سردي ومخططات) على CD + 3 نسخ ورقية ملونة A3`,
+        timeline: `جدول التصميم 7 أيام، الإنشاء 15 يوماً؛ التحديث يوم 10 شهرياً (التقديم خلال 5 أيام)`,
+        risk: `فقدان الحق في تمديد المدة (TD130 §8.1) وتعثر مطابقة الدفعة الشهرية.`,
+        detail: `يُرفق بالتحديث الشهري تقرير سردي ببيانات العقد، المسار الحرج، مخطط القيمة المكتسبة والتدفق النقدي، وقائمة التعديلات والموافقات.`
+      },
+      {
+        id: `qaqc_geo`,
+        category: `planning`,
+        name: `خطة الجودة (QAP) والتقرير الجيوتقني (TD410)`,
+        ref: `TD030 §2.1 &amp; TD410 §3.2, §6.3`,
+        copies: `خطة QAP مستقلة + خطة الجسات قبل الحفر + تقرير جيوتقني موقع ومختوم`,
+        timeline: `تقديم QAP خلال 28 يوماً من الترسية؛ قراءات المياه الجوفية 4 أسابيع بعد الحفر`,
+        risk: `حظر بدء أي أعمال تصميم أو حفر أو إنشاء قبل اعتماد QAP وخطة التحريات من CM/CS.`,
+        detail: `يشترط عمق جسات لا يقل عن 10 م للمباني (1–3 طوابق)، وتحليل الكبريتات والكلوريدات، وحماية الأساسات بـ 100 مم خرسانة نظافة وطبقتي بيتومين ساخن.`
+      }
+    ];
+
+    function saveState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        window.notebookAppApi.setAppState(appState).catch(function() {});
+      }
+    }
+
+    function jumpToSlide(slideId) {
+      const target = document.getElementById(slideId);
+      if (target) {
+        target.scrollIntoView({ behavior: `smooth`, block: `start` });
+      }
+    }
+
+    function stepSlide(delta) {
+      const next = Math.max(1, Math.min(TOTAL_SLIDES, appState.currentSlide + delta));
+      appState.currentSlide = next;
+      updateDockLabel(next);
+      jumpToSlide(`slide-` + next);
+    }
+
+    function updateDockLabel(num) {
+      const dock = document.getElementById(`dock-status`);
+      if (dock) {
+        const padded = num < 10 ? `0` + num : `` + num;
+        dock.textContent = `الشريحة ` + padded + ` / 09`;
+      }
+    }
+
+    function toggleSlideReviewed(slideNum) {
+      const idx = appState.reviewedSlides.indexOf(slideNum);
+      if (idx === -1) {
+        appState.reviewedSlides.push(slideNum);
+      } else {
+        appState.reviewedSlides.splice(idx, 1);
+      }
+      renderProgressUI();
+      saveState();
+    }
+
+    function renderProgressUI() {
+      const count = appState.reviewedSlides.length;
+      const label = document.getElementById(`progress-label`);
+      const fill = document.getElementById(`progress-fill`);
+      if (label) label.textContent = `إنجاز المراجعة: ` + count + ` من ` + TOTAL_SLIDES + ` شرائح`;
+      if (fill) fill.style.width = Math.round((count / TOTAL_SLIDES) * 100) + `%`;
+
+      const buttons = document.querySelectorAll(`.slide-check-btn`);
+      buttons.forEach(function(btn) {
+        const sNum = Number(btn.getAttribute(`data-slide-check`));
+        const isDone = appState.reviewedSlides.indexOf(sNum) !== -1;
+        btn.classList.toggle(`is-checked`, isDone);
+        btn.textContent = isDone ? `تمت المراجعة ✓` : `تحديد كمقروءة`;
+      });
+
+      const summaryEl = document.getElementById(`final-summary-status`);
+      if (summaryEl) {
+        const caseOk = appState.caseDecision === `c` ? `تم اجتياز دراسة الحالة بنجاح` : `دراسة الحالة قيد الاستكمال`;
+        summaryEl.textContent = `تمت مراجعة ` + count + ` من ` + TOTAL_SLIDES + ` شرائح — ` + caseOk + `.`;
+      }
+    }
+
+    function selectOrgRole(roleKey) {
+      const role = ORG_ROLES[roleKey];
+      if (!role) return;
+      appState.selectedOrgRole = roleKey;
+
+      const tabs = document.querySelectorAll(`.role-tab-btn`);
+      tabs.forEach(function(t) {
+        t.classList.toggle(`is-active`, t.getAttribute(`data-role`) === roleKey);
+      });
+
+      const panel = document.getElementById(`org-detail-panel`);
+      if (panel) {
+        const bulletsHtml = role.bullets.map(function(b) {
+          return `<li>` + b + `</li>`;
+        }).join(``);
+        panel.innerHTML = `
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <strong style="font-family: var(--font-headline); font-size: 1.15rem;">` + role.title + `</strong>
+            <span class="tag tag-secondary">` + role.badge + `</span>
+          </div>
+          <ul class="brief-list">` + bulletsHtml + `</ul>
+        `;
+      }
+      saveState();
+    }
+
+    function setP6Mode(modeKey) {
+      const scenario = P6_SCENARIOS[modeKey];
+      if (!scenario) return;
+      appState.p6Mode = modeKey;
+
+      const btns = document.querySelectorAll(`.p6-mode-btn`);
+      btns.forEach(function(btn) {
+        const active = btn.getAttribute(`data-p6mode`) === modeKey;
+        btn.classList.toggle(`btn-primary`, active);
+        btn.classList.toggle(`btn-secondary`, !active);
+      });
+
+      const container = document.getElementById(`gantt-container`);
+      if (container) {
+        container.innerHTML = scenario.bars.map(function(bar) {
+          return `
+            <div class="gantt-row">
+              <div>` + bar.name + `</div>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ` + bar.type + `" style="right: ` + bar.left + `%; width: ` + bar.width + `%;"></div>
+              </div>
+              <div class="tabular" style="font-weight: 600;">` + bar.days + `</div>
+            </div>
+          `;
+        }).join(``);
+      }
+
+      const fb = document.getElementById(`p6-audit-feedback`);
+      if (fb) fb.innerHTML = scenario.message;
+      saveState();
+    }
+
+    function selectWorkflowStep(stepNum) {
+      const data = WORKFLOW_STEPS[stepNum];
+      if (!data) return;
+      appState.workflowStep = stepNum;
+
+      const stepBtns = document.querySelectorAll(`.step-btn`);
+      stepBtns.forEach(function(btn) {
+        btn.classList.toggle(`is-active`, Number(btn.getAttribute(`data-step`)) === stepNum);
+      });
+
+      const box = document.getElementById(`workflow-detail-box`);
+      if (box) {
+        const listHtml = data.points.map(function(p) { return `<li>` + p + `</li>`; }).join(``);
+        box.innerHTML = `
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <strong style="font-family: var(--font-headline); font-size: 1.2rem;">` + data.title + `</strong>
+            <span class="tag">` + data.tag + `</span>
+          </div>
+          <ul class="brief-list">` + listHtml + `</ul>
+        `;
+      }
+      saveState();
+    }
+
+    function filterSubmittals() {
+      const catEl = document.getElementById(`submittal-category`);
+      const searchEl = document.getElementById(`submittal-search`);
+      const tbody = document.getElementById(`submittals-tbody`);
+      if (!tbody) return;
+
+      const cat = catEl ? catEl.value : `all`;
+      const query = searchEl ? searchEl.value.trim().toLowerCase() : ``;
+
+      const filtered = SUBMITTALS_DATA.filter(function(item) {
+        const matchCat = cat === `all` || item.category === cat;
+        const haystack = (item.name + ` ` + item.ref + ` ` + item.copies + ` ` + item.timeline + ` ` + item.risk).toLowerCase();
+        const matchQuery = !query || haystack.indexOf(query) !== -1;
+        return matchCat && matchQuery;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: var(--space-lg); color: var(--on-surface-variant);">لا توجد تقديمات مطابقة لمعايير البحث الحالية. جرّب مسح نص البحث أو اختيار «جميع التقديمات».</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(function(item) {
+        const selectedClass = item.id === appState.selectedSubmittalId ? ` class="is-selected"` : ``;
+        return `
+          <tr` + selectedClass + ` onclick="inspectSubmittal('` + item.id + `')">
+            <td><strong>` + item.name + `</strong></td>
+            <td><span class="ltr-code">` + item.ref + `</span></td>
+            <td>` + item.copies + `</td>
+            <td>` + item.timeline + `</td>
+            <td>` + item.risk + `</td>
+          </tr>
+        `;
+      }).join(``);
+    }
+
+    function inspectSubmittal(id) {
+      const found = SUBMITTALS_DATA.find(function(item) { return item.id === id; });
+      if (!found) return;
+      appState.selectedSubmittalId = id;
+      filterSubmittals();
+
+      const inspector = document.getElementById(`submittal-inspector`);
+      if (inspector) {
+        inspector.innerHTML = `
+          <div class="dossier-bar" style="margin-bottom: var(--space-xs);">
+            <strong>تفاصيل التقديم المحدد: ` + found.name + `</strong>
+            <span class="tag tag-secondary"><span class="ltr-code">` + found.ref + `</span></span>
+          </div>
+          <p style="margin: 0;">` + found.detail + `</p>
+        `;
+      }
+      saveState();
+    }
+
+    function evaluateCaseDecision(choice) {
+      appState.caseDecision = choice;
+      const btns = document.querySelectorAll(`.option-card`);
+      btns.forEach(function(btn) {
+        const opt = btn.getAttribute(`data-case-opt`);
+        btn.classList.remove(`chosen-correct`, `chosen-wrong`);
+        if (opt === choice) {
+          btn.classList.add(choice === `c` ? `chosen-correct` : `chosen-wrong`);
+        }
+      });
+
+      const fb = document.getElementById(`case-feedback`);
+      if (fb) {
+        if (choice === `c`) {
+          fb.innerHTML = `<strong style="color: var(--positive);">قرار سليم ومطابق للعقد:</strong> تفعيل الوقف الفوري عبر <span class="ltr-code">CM/CS</span> يحمي المالك بموجب <span class="ltr-code">TD150 §2.4</span> و<span class="ltr-code">TD022 §6.2.11</span>، ويضمن تنفيذ حماية الأساسات (<span class="ltr-code">100 مم</span> خرسانة نظافة + طبقتي بيتومين ساخن وفق <span class="ltr-code">TD410 §6.3</span>) بعد الاعتماد الرسمي فقط.`;
+        } else if (choice === `a`) {
+          fb.innerHTML = `<strong style="color: var(--error);">مخالفة عقدية جسيمة:</strong> التعهد الشفهي لا قيمة له في حوكمة <span class="ltr-code">HIB</span>، والسماح بالصب قبل انتهاء مهلة الـ 21 يوماً وصدور الاعتماد المكتوب يُسقط الضمان الرقابي ويعرّض الأساسات لمخاطر فنية وجيوتقنية.`;
+        } else {
+          fb.innerHTML = `<strong style="color: var(--error);">تجاوز لقنوات الاتصال الرسمية:</strong> وفق <span class="ltr-code">TD020 §1.2</span> و<span class="ltr-code">TD150 §1.2</span>، تنحصر مراجعة التقديمات والمراسلات في <span class="ltr-code">CM/CS</span>، وأي موافقة موقعية غير موثقة تخرق فصل الصلاحيات.`;
+        }
+      }
+      renderProgressUI();
+      saveState();
+    }
+
+    function exportTrainingSummary() {
+      const lines = [
+        `ملخص المحاضرة الأولى — برنامج التدريب الهندسي HIB-22`,
+        `المشروع: الفجائج السكني (97 وحدة سكنية منفصلة | 14.15 هكتار | 160.4 م²/وحدة)`,
+        `الشرائح المراجعة: ` + appState.reviewedSlides.length + ` من ` + TOTAL_SLIDES,
+        `قرار دراسة الحالة: ` + (appState.caseDecision === `c` ? `صحيح (تطبيق TD150 §2.4 عبر CM/CS)` : `غير مكتمل`),
+        ``,
+        `الوصايا الذهبية الثلاث لمهندس المالك:`,
+        `1. التحقق الميداني من أختام الاعتماد (200×75 مم) وخطة QAP قبل أي تنفيذ.`,
+        `2. حصر جميع المراسلات والمراجعات عبر مقاول الإدارة والإشراف CM/CS فقط.`,
+        `3. حظر التعديلات غير الرسمية ومراقبة سقف الـ 20 يوماً والمسار الحرج في Primavera P6.`
+      ].join(`\n`);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: lines,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `HIB22_Al_Fajaij_Owner_Engineer_Summary.txt`
+        });
+      } else {
+        const blob = new Blob([lines], { type: `text/plain;charset=utf-8` });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement(`a`);
+        a.href = url;
+        a.download = `HIB22_Al_Fajaij_Owner_Engineer_Summary.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    function handleResetProgress(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `اضغط مرة أخرى لتأكيد المسح`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.textContent = `إعادة ضبط التقدم`;
+
+      appState = {
+        currentSlide: 1,
+        reviewedSlides: [],
+        selectedOrgRole: `hib`,
+        p6Mode: `compliant`,
+        workflowStep: 1,
+        selectedSubmittalId: `shop`,
+        caseDecision: null
+      };
+
+      const btns = document.querySelectorAll(`.option-card`);
+      btns.forEach(function(b) { b.classList.remove(`chosen-correct`, `chosen-wrong`); });
+      const fb = document.getElementById(`case-feedback`);
+      if (fb) fb.textContent = `اختر أحد البدائل أعلاه لاختبار التكييف العقدي للموقف.`;
+
+      selectOrgRole(`hib`);
+      setP6Mode(`compliant`);
+      selectWorkflowStep(1);
+      inspectSubmittal(`shop`);
+      renderProgressUI();
+      saveState();
+    }
+
+    function initObservers() {
+      const sections = document.querySelectorAll(`.slide-section, .slide-cover`);
+      if (`IntersectionObserver` in window) {
+        const revealObs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(`is-visible`);
+              const sNum = Number(entry.target.getAttribute(`data-slide`));
+              if (sNum) {
+                appState.currentSlide = sNum;
+                updateDockLabel(sNum);
+              }
+            }
+          });
+        }, { threshold: 0.15 });
+
+        sections.forEach(function(sec) {
+          if (sec.classList.contains(`slide-section`)) {
+            sec.classList.add(`reveal-ready`);
+          }
+          revealObs.observe(sec);
+        });
+      }
+
+      const orgNodes = document.querySelectorAll(`.org-node-btn`);
+      orgNodes.forEach(function(node) {
+        node.addEventListener(`keydown`, function(ev) {
+          if (ev.key === `Enter` || ev.key === ` `) {
+            ev.preventDefault();
+            node.click();
+          }
+        });
+      });
+    }
+
+    async function initApp() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (Array.isArray(saved.reviewedSlides)) appState.reviewedSlides = saved.reviewedSlides;
+            if (saved.selectedOrgRole) appState.selectedOrgRole = saved.selectedOrgRole;
+            if (saved.p6Mode) appState.p6Mode = saved.p6Mode;
+            if (saved.workflowStep) appState.workflowStep = saved.workflowStep;
+            if (saved.selectedSubmittalId) appState.selectedSubmittalId = saved.selectedSubmittalId;
+            if (saved.caseDecision) appState.caseDecision = saved.caseDecision;
+          }
+        } catch (e) {}
+      }
+
+      selectOrgRole(appState.selectedOrgRole);
+      setP6Mode(appState.p6Mode);
+      selectWorkflowStep(appState.workflowStep);
+      inspectSubmittal(appState.selectedSubmittalId);
+      if (appState.caseDecision) evaluateCaseDecision(appState.caseDecision);
+      renderProgressUI();
+      initObservers();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`keydown`, function(e) {
+      if (e.target && (e.target.tagName === `INPUT` || e.target.tagName === `SELECT` || e.target.tagName === `TEXTAREA`)) return;
+      if (e.key === `ArrowDown` || e.key === `PageDown`) {
+        e.preventDefault();
+        stepSlide(1);
+      } else if (e.key === `ArrowUp` || e.key === `PageUp`) {
+        e.preventDefault();
+        stepSlide(-1);
+      }
+    });
+
+    initApp();
+  </script>
+</body>
+</html>
